@@ -3,9 +3,11 @@ from datetime import datetime
 import os
 
 def insert(data, file_name):
-    df = pd.DataFrame(list(data.items()), columns=['Class', 'Score'])
+    columns = [list(data.keys())[0], data[list(data.keys())[0]]]
+    del data[list(data.keys())[0]]
+    df = pd.DataFrame(list(data.items()), columns=columns)
     date_str = datetime.now().strftime("%Y-%m-%d")
-
+    
     with pd.ExcelWriter(file_name, engine='openpyxl', mode='a' if os.path.exists(file_name) else 'w') as writer:
         df.to_excel(writer, sheet_name=date_str, index=False)
 
@@ -31,4 +33,4 @@ if __name__ == "__main__":
         'Class 15': 3.00,
         'Class 16': 3.00
     }
-    insert(data)
+    insert(data, "grades.xlsx")
