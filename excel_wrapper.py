@@ -2,7 +2,7 @@ import pandas as pd
 from datetime import datetime
 import os
 
-def insert(file_name):
+def insert(data, file_name):
     df = pd.DataFrame(list(data.items()), columns=['Class', 'Score'])
     date_str = datetime.now().strftime("%Y-%m-%d")
 
