@@ -2,6 +2,7 @@ import toml
 import requests
 import extract_classes
 import extract_grades
+import gpa_calc
 import excel_wrapper
 
 config = toml.load("config.toml")
@@ -37,11 +38,23 @@ headers = {
 classes_html = requests.get("https://" + mb_url + "/student/classes/my", cookies=cookies, headers=headers)
 classes = extract_classes.extract_classes(classes_html.text)
 
-total_grades = {}
+percentages = []
+excel_grades = {}
 for class_id, class_name in classes.items():
     class_html = requests.get("https://" + mb_url+ "/student/classes/" + class_id + "/units", cookies=cookies, headers=headers)
     grades = extract_grades.extract_grades(class_html.content)
     print(class_name, ": ", grades, sep="")
-    total_grades[class_id] = grades
+    if grades != None:
+        excel_grades[class_name] = grades[1]
+        percentages.append(grades[1])
+    else:
+        continue
 
-print(total_grades)
+print(percentages)
+gpa = gpa_calc.calc_gpa(percentages)
+excel_grades["GPA"] = str(gpa)
+
+excel_grades = {"GPA": excel_grades["GPA"], **{k: v for k, v in excel_grades.items() if k != "GPA"}}
+print(excel_grades)
+
+excel_wrapper.insert(excel_grades, excel_file)
