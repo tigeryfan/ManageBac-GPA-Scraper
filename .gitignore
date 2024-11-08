@@ -3,3 +3,4 @@ config.toml
 \./*
 *.html
 .DS_Store
+*.xlsx
