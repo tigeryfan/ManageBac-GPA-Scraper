@@ -2,7 +2,7 @@ def calc_gpa(scores):
     total_points = 0
     for score in scores:
         total_points += float(score.replace("%", ""))
-    gpa = total_points / len(scores)
+    gpa = ((total_points / len(scores))/100)*4
     return str(gpa)
 
 if __name__ == "__main__":
