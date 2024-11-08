@@ -1,3 +1,4 @@
+### ManageBac GPA Excel Exporter
 import toml
 import requests
 import extract_classes
@@ -35,9 +36,11 @@ headers = {
     "Cache-Control": "no-cache",
 }
 
+# Extract classes
 classes_html = requests.get("https://" + mb_url + "/student/classes/my", cookies=cookies, headers=headers)
 classes = extract_classes.extract_classes(classes_html.text)
 
+# Extract grades
 percentages = []
 excel_grades = {}
 for class_id, class_name in classes.items():
@@ -50,11 +53,14 @@ for class_id, class_name in classes.items():
     else:
         continue
 
+# Calculate GPA
 print(percentages)
 gpa = gpa_calc.calc_gpa(percentages)
 excel_grades["GPA"] = str(gpa)
 
+# Make GPA appear as #1
 excel_grades = {"GPA": excel_grades["GPA"], **{k: v for k, v in excel_grades.items() if k != "GPA"}}
 print(excel_grades)
 
+# Export to Excel
 excel_wrapper.insert(excel_grades, excel_file)
