@@ -12,7 +12,7 @@ def extract_classes(html):
             class_name = link.find("span", class_="f-menu-submenu-link-title").text.strip()
             if class_id.isdigit():
                 classes[class_id] = class_name
-                
+
     return classes
                 
 if __name__ == "__main__":
