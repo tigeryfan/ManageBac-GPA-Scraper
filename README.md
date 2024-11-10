@@ -43,7 +43,7 @@ python main.py
 > [!TIP]
 > Some Linux or macOS users may need to use `python3` instead of `python`.
 
-Keep in mind that the ManageBac cookies expire after some time, so if the script fails, follow [these instructions](#`mb_cookie`) again.
+Keep in mind that the ManageBac cookies expire after some time, so if the script fails, follow [these instructions](#mb_cookie) again.
 
 ## License
 MIT License - Copyright (c) 2024 tigeryfan
