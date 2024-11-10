@@ -33,7 +33,8 @@ You may be confused by what to put in `mb_cookie`. Here's a step-by-step guide:
 5. Double click the string of characters to the right of `_managebac_session` and copy the highlighted text
 7. Paste that **inside of the double quotes** in `config.toml`
 
-![[get_cookie.png]]![[paste_cookie.png]]
+![How to get cookie](/get_cookie.png)
+![How to correctly paste cookie](/paste_cookie.png)
 
 ## Usage
 After configuring `config.toml`, simply run `main.py`.
