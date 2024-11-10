@@ -1,0 +1,11 @@
+[secrets]
+# Keep this safe! Your MB Cookie
+mb_cookie = "QM................................"
+
+[mb]
+# School MB URL
+mb_url = "example.managebac.com"
+
+[excel]
+# Excel file location
+file_name = "grades.xlsx"
