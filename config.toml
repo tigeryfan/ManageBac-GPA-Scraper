@@ -11,5 +11,5 @@ mb_url = "example.managebac.com"
 file_name = "grades.xlsx"
 
 [scraping]
-# Enter User-Agent here
+# Enter User-Agent here. Keep in mind that ManageBac may block some UAs due to scripting abuse
 ua = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:132.0) Gecko/20100101 Firefox/132.0"
