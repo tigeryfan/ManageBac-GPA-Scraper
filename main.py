@@ -10,9 +10,7 @@ config = toml.load("config.toml")
 mb_cookie = config["secrets"]["mb_cookie"]
 mb_url = config["mb"]["mb_url"]
 excel_file = config["excel"]["file_name"]
-
-# Set User Agent here. Keep in mind that ManageBac may block some UAs due to scripting abuse
-ua = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:131.0) Gecko/20100101 Firefox/131.0"
+ua = config["scraping"]["ua"]
 
 # Cookies
 cookies = {
