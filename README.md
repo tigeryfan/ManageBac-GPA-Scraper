@@ -1,3 +1,4 @@
+# ManageBac GPA Scraper
 ### Scrape grades, calculate GPA, and export into Excel!
 
 This Python script automates the process of navigating to each ManageBac class, copying the overall grade, and calculating the GPA manually. This highly customizable script provides a quick way to track your academic progress, and provides valuable insights on how to improve your grade.
